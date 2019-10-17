@@ -48,14 +48,14 @@ BOOSTER_DICT = \
      "fricking": B_INCR, "frickin": B_INCR, "frigging": B_INCR, "friggin": B_INCR, "fullt": B_INCR,
      "fuckin": B_INCR, "fucking": B_INCR, "fuggin": B_INCR, "fugging": B_INCR,
      "mycket": B_INCR, "hella": B_INCR, "högt": B_INCR, "högst": B_INCR,
-     "intensivt": B_INCR,
+     "intensivt": B_INCR, "sjukt": B_INCR,
      "mestadels": B_INCR, "mer": B_INCR, "mest": B_INCR, "särskilt": B_INCR,
      "enbart": B_INCR, "ganska": B_INCR, "anmärkningsvärt": B_INCR,
      "så": B_INCR, "väsentligen": B_INCR,
      "genomgående": B_INCR, "total": B_INCR, "grundligt": B_INCR, "totalt": B_INCR, "oerhört": B_INCR,
      "uber": B_INCR, "ovanligt": B_INCR,
      "nästan": B_DECR, "knappt": B_DECR, "marginellt": B_DECR, "med nöd och näpppe": B_DECR,
-     "ungefär": B_DECR,
+     "ungefär": B_DECR, "någorlunda", B_DECR,
      "mindre": B_DECR, "lite": B_DECR, "litet": B_DECR,
      "ibland": B_DECR, "stundvis": B_DECR, "delvis": B_DECR,
      "sällsynt": B_DECR, "då och då": B_DECR, "viss": B_DECR}
@@ -504,29 +504,29 @@ class SentimentIntensityAnalyzer(object):
 
 if __name__ == '__main__':
     # --- examples -------
-    sentences = ["VADER is smart, handsome, and funny.",  # positive sentence example
-                 "VADER is smart, handsome, and funny!",
+    sentences = ["VADER är smart, stilig och rolig.",  # positive sentence example
+                 "VADER är smart, stilig och rolig!",
                  # punctuation emphasis handled correctly (sentiment intensity adjusted)
-                 "VADER is very smart, handsome, and funny.",
+                 "VADER är väldigt mart, stilig och rolig.",
                  # booster words handled correctly (sentiment intensity adjusted)
-                 "VADER is VERY SMART, handsome, and FUNNY.",  # emphasis for ALLCAPS handled
-                 "VADER is VERY SMART, handsome, and FUNNY!!!",
+                 "VADER är VÄLDIGT SMART, STILIG och ROLIG.",  # emphasis for ALLCAPS handled
+                 "VADER är VÄLDIGT SMART, stilig och ROLIG!!!",
                  # combination of signals - VADER appropriately adjusts intensity
-                 "VADER is VERY SMART, uber handsome, and FRIGGIN FUNNY!!!",
+                 "VADER är väldigt smart, uber stilig och SJUKT ROLIG!!!",
                  # booster words & punctuation make this close to ceiling for score
-                 "VADER is not smart, handsome, nor funny.",  # negation sentence example
-                 "The book was good.",  # positive sentence
-                 "At least it isn't a horrible book.",  # negated negative sentence with contraction
-                 "The book was only kind of good.",
+                 "VADER är inte smart, stilig och inte rolig.",  # negation sentence example
+                 "Boken var bra.",  # positive sentence
+                 "Det är åtminstone inte en dålig bok",  # negated negative sentence with contraction
+                 "Boken var bara någorlunda bra.",
                  # qualified positive sentence is handled correctly (intensity adjusted)
-                 "The plot was good, but the characters are uncompelling and the dialog is not great.",
+                 "Handlingen var bra, men karaktärerna är okomponerande och dialogen är inte bra.",
                  # mixed negation sentence
-                 "Today SUX!",  # negative slang with capitalization emphasis
-                 "Today only kinda sux! But I'll get by, lol",
+                 "Den här dagen SUX!",  # negative slang with capitalization emphasis
+                 "Den här dagen suger bara delvis. Men jag överlever, lol",
                  # mixed sentiment example with slang and constrastive conjunction "but"
-                 "Make sure you :) or :D today!",  # emoticons handled
-                 "Catch utf-8 emoji such as 💘 and 💋 and 😁",  # emojis handled
-                 "Not bad at all"  # Capitalized negation
+                 "Se till att du :) eller :D idag!",  # emoticons handled
+                 "Fånga utf-8 emoji så som 💘 och 💋 och 😁",  # emojis handled
+                 "Inte dålig alls"  # Capitalized negation
                  ]
 
     analyzer = SentimentIntensityAnalyzer()
@@ -536,9 +536,9 @@ if __name__ == '__main__':
     print("  -- negations")
     print("  -- punctuation emphasis & punctuation flooding")
     print("  -- word-shape as emphasis (capitalization difference)")
-    print("  -- degree modifiers (intensifiers such as 'very' and dampeners such as 'kind of')")
-    print("  -- slang words as modifiers such as 'uber' or 'friggin' or 'kinda'")
-    print("  -- contrastive conjunction 'but' indicating a shift in sentiment; sentiment of later text is dominant")
+    print("  -- degree modifiers (intensifiers such as 'väldigt' and dampeners such as 'någorlunda')")
+    print("  -- slang words as modifiers such as 'uber' or 'friggin' or 'ganska'")
+    print("  -- contrastive conjunction 'men' indicating a shift in sentiment; sentiment of later text is dominant")
     print("  -- use of contractions as negations")
     print("  -- sentiment laden emoticons such as :) and :D")
     print("  -- utf-8 encoded emojis such as 💘 and 💋 and 😁")
@@ -560,24 +560,24 @@ if __name__ == '__main__':
 
     # input("\nPress Enter to continue the demo...\n")  # for DEMO purposes...
 
-    tricky_sentences = ["Sentiment analysis has never been good.",
-                        "Sentiment analysis has never been this good!",
-                        "Most automated sentiment analysis tools are shit.",
-                        "With VADER, sentiment analysis is the shit!",
-                        "Other sentiment analysis tools can be quite bad.",
-                        "On the other hand, VADER is quite bad ass",
-                        "VADER is such a badass!",  # slang with punctuation emphasis
-                        "Without a doubt, excellent idea.",
-                        "Roger Dodger is one of the most compelling variations on this theme.",
-                        "Roger Dodger is at least compelling as a variation on the theme.",
-                        "Roger Dodger is one of the least compelling variations on this theme.",
-                        "Not such a badass after all.",  # Capitalized negation with slang
-                        "Without a doubt, an excellent idea."  # "without {any} doubt" as negation
+    tricky_sentences = ["Sentimentanalys har aldrig varit bra.",
+                        "Sentimentanalys har aldrig varit så här bra!",
+                        "De flesta automatiserade sentimentanalysverktyg är skit.",
+                        "Med VADER är sentimentanalysen the shit!",
+                        "Andra sentimentanalysverktyg kan vara ganska dåliga.",
+                        "Å andra sidan är VADER ganska badass",
+                        "VADER är en sådan badass!",  # slang with punctuation emphasis
+                        "Utan tvekan, utmärkt idé.",
+                        "Roger Dodger är en av de mest övertygande variationerna på detta tema.",
+                        "Roger Dodger är åtminstone övertygande som en variation på temat.",
+                        "Roger Dodger är en av de minst övertygande variationerna på detta tema.",
+                        "Inte en sådan badass trots allt.",  # Capitalized negation with slang
+                        "Utan tvekan en utmärkt idé."  # "without {any} doubt" as negation
                         ]
     print("----------------------------------------------------")
     print(" - Analyze examples of tricky sentences that cause trouble to other sentiment analysis tools.")
-    print("  -- special case idioms - e.g., 'never good' vs 'never this good', or 'bad' vs 'bad ass'.")
-    print("  -- special uses of 'least' as negation versus comparison \n")
+    print("  -- special case idioms - e.g., 'aldrig bra' vs 'aldrig såhär bra', or 'bad' vs 'bad ass'.")
+    print("  -- special uses of 'minst' as negation versus comparison \n")
     for sentence in tricky_sentences:
         vs = analyzer.polarity_scores(sentence)
         print("{:-<69} {}".format(sentence, str(vs)))
@@ -588,7 +588,7 @@ if __name__ == '__main__':
     print("----------------------------------------------------")
     print(
         " - VADER works best when analysis is done at the sentence level (but it can work on single words or entire novels).")
-    paragraph = "It was one of the worst movies I've seen, despite good reviews. Unbelievably bad acting!! Poor direction. VERY poor production. The movie was bad. Very bad movie. VERY BAD movie!"
+    paragraph = "Det var en av de värsta filmerna jag har sett, trots bra recensioner. Otroligt dåligt agerat !! Dåligt regi. MYCKET dålig produktion. Filmen var dålig. Mycket dålig film. MYCKET DÅRLIG film!"
     print("  -- For example, given the following paragraph text from a hypothetical movie review:\n\t'{}'".format(
         paragraph))
     print(
@@ -609,7 +609,7 @@ if __name__ == '__main__':
 
     print("----------------------------------------------------")
     print(" - Analyze sentiment of IMAGES/VIDEO data based on annotation 'tags' or image labels. \n")
-    conceptList = ["balloons", "cake", "candles", "happy birthday", "friends", "laughing", "smiling", "party"]
+    conceptList = ["ballonger", "tårta", "ljus", "grattis på födelsedagen", "vänner", "skrattar", "ler", "fest"]
     conceptSentiments = 0.0
     for concept in conceptList:
         vs = analyzer.polarity_scores(concept)
@@ -617,7 +617,7 @@ if __name__ == '__main__':
         conceptSentiments += vs["compound"]
     print("AVERAGE SENTIMENT OF TAGS/LABELS: \t" + str(round(conceptSentiments / len(conceptList), 4)))
     print("\t")
-    conceptList = ["riot", "fire", "fight", "blood", "mob", "war", "police", "tear gas"]
+    conceptList = ["upplopp", "brand", "slagsmål", "blod", "maffia", "krig", "polis", "tårgas"]
     conceptSentiments = 0.0
     for concept in conceptList:
         vs = analyzer.polarity_scores(concept)
@@ -629,7 +629,7 @@ if __name__ == '__main__':
     # input("\nPress Enter to continue the demo...")  # for DEMO purposes...
 
     do_translate = input(
-        "\nWould you like to run VADER demo examples with NON-ENGLISH text? (Note: requires Internet access) \n Type 'y' or 'n', then press Enter: ")
+        "\nWould you like to run VADER demo examples with ICKE-SVENSK text? (Note: requires Internet access) \n Type 'y' or 'n', then press Enter: ")
     if do_translate.lower().lstrip().__contains__("y"):
         print("\n----------------------------------------------------")
         print(" - Analyze sentiment of NON ENGLISH text...for example:")
@@ -637,7 +637,7 @@ if __name__ == '__main__':
         print("  -- many other languages supported. \n")
         languages = ["English", "French", "German", "Spanish", "Italian", "Russian", "Japanese", "Arabic", "Chinese(Simplified)", "Chinese(Traditional)"]
         language_codes = ["en", "fr", "de", "es", "it", "ru", "ja", "ar", "zh-CN", "zh-TW"]
-        nonEnglish_sentences = ["I'm surprised to see just how amazingly helpful VADER is!",
+        nonSwedish_sentences = ["I'm surprised to see just how amazingly helpful VADER is!",
                                 "Je suis surpris de voir comment VADER est incroyablement utile !",
                                 "Ich bin überrascht zu sehen, nur wie erstaunlich nützlich VADER!",
                                 "Me sorprende ver sólo cómo increíblemente útil VADER!",
@@ -648,10 +648,10 @@ if __name__ == '__main__':
                                 "我很惊讶地看到VADER是如此有用!",
                                 "我很驚訝地看到VADER是如此有用!"
                                 ]
-        for sentence in nonEnglish_sentences:
-            to_lang = "en"
-            from_lang = language_codes[nonEnglish_sentences.index(sentence)]
-            if (from_lang == "en") or (from_lang == "en-US"):
+        for sentence in nonSwedish_sentences:
+            to_lang = "sv"
+            from_lang = language_codes[nonSwedish_sentences.index(sentence)]
+            if (from_lang == "sv") or (from_lang == "sv-SE"):
                 translation = sentence
                 translator_name = "No translation needed"
             else:  # please note usage limits for My Memory Translation Service:   http://mymemory.translated.net/doc/usagelimits.php
