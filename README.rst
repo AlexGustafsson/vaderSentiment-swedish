@@ -3,8 +3,11 @@ Swedish-translated VADER-Sentiment-Analysis
 ====================================
 
 
-**Psst! Looking for the [English version](https://github.com/cjhutto/vaderSentiment) made by ['cjhutto'](https://github.com/cjhutto)?**
-** Then go [here](https://github.com/cjhutto/vaderSentiment) instead, since this is a Swedish version of the module. **
+**Looking for the English version made by https://github.com/cjhutto?**
+**Then go to https://github.com/cjhutto/vaderSentiment instead, since this is a Swedish version of the module.**
+
+.. _Quick reStructuredText: quickref.html
+.. _master quick reference:
 
 VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is *specifically attuned to sentiments expressed in social media*. It is fully open-sourced under the `[MIT License] <http://choosealicense.com/>`_ (we sincerely appreciate all attributions and readily accept most contributions, but please don't hold us liable).
 
