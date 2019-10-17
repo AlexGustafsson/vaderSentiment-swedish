@@ -67,7 +67,7 @@ SENTIMENT_LADEN_IDIOMS = {"skär senapen": 2, "hand till mun": -2,
 
 # check for special case idioms containing lexicon words
 SPECIAL_CASE_IDIOMS = {"the shit": 3, "the bomb": 3, "bad ass": 1.5, "badass": 1.5,
-                       "yeah right": -2, "kiss of death": -1.5, "att dö för": 3}
+                       "yeah right": -2, "att dö för": 3}
 
 
 # #Static methods# #
