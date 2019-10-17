@@ -61,15 +61,13 @@ BOOSTER_DICT = \
      "sällsynt": B_DECR, "då och då": B_DECR, "viss": B_DECR}
 
 # check for sentiment laden idioms that do not contain lexicon words (future work, not yet implemented)
-SENTIMENT_LADEN_IDIOMS = {"cut the mustard": 2, "hand to mouth": -2,
-                          "back handed": -2, "blow smoke": -2, "blowing smoke": -2,
-                          "upper hand": 1, "break a leg": 2,
-                          "cooking with gas": 2, "in the black": 2, "in the red": -2,
-                          "on the ball": 2, "under the weather": -2}
+SENTIMENT_LADEN_IDIOMS = {"skär senapen": 2, "hand till mun": -2,
+                          "ta ett bloss": -2, "blossa": -2,
+                          "bryt ett ben": 2}
 
 # check for special case idioms containing lexicon words
 SPECIAL_CASE_IDIOMS = {"the shit": 3, "the bomb": 3, "bad ass": 1.5, "badass": 1.5,
-                       "yeah right": -2, "kiss of death": -1.5, "to die for": 3}
+                       "yeah right": -2, "kiss of death": -1.5, "att dö för": 3}
 
 
 # #Static methods# #
