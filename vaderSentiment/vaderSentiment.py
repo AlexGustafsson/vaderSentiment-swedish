@@ -55,7 +55,7 @@ BOOSTER_DICT = \
      "genomgående": B_INCR, "total": B_INCR, "grundligt": B_INCR, "totalt": B_INCR, "oerhört": B_INCR,
      "uber": B_INCR, "ovanligt": B_INCR,
      "nästan": B_DECR, "knappt": B_DECR, "marginellt": B_DECR, "med nöd och näpppe": B_DECR,
-     "ungefär": B_DECR, "någorlunda", B_DECR,
+     "ungefär": B_DECR, "någorlunda": B_DECR,
      "mindre": B_DECR, "lite": B_DECR, "litet": B_DECR,
      "ibland": B_DECR, "stundvis": B_DECR, "delvis": B_DECR,
      "sällsynt": B_DECR, "då och då": B_DECR, "viss": B_DECR}
@@ -563,11 +563,11 @@ if __name__ == '__main__':
     tricky_sentences = ["Sentimentanalys har aldrig varit bra.",
                         "Sentimentanalys har aldrig varit så här bra!",
                         "De flesta automatiserade sentimentanalysverktyg är skit.",
-                        "Med VADER är sentimentanalysen the shit!",
+                        "Men VADER är sentimentanalysen the shit!",
                         "Andra sentimentanalysverktyg kan vara ganska dåliga.",
                         "Å andra sidan är VADER ganska badass",
                         "VADER är en sådan badass!",  # slang with punctuation emphasis
-                        "Utan tvekan, utmärkt idé.",
+                        "Utan tvekan, en utmärkt idé.",
                         "Roger Dodger är en av de mest övertygande variationerna på detta tema.",
                         "Roger Dodger är åtminstone övertygande som en variation på temat.",
                         "Roger Dodger är en av de minst övertygande variationerna på detta tema.",

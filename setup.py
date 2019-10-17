@@ -12,7 +12,7 @@ def read(*parts):
         return f.read()
 
 setup(
-  name = 'vaderSentiment',
+  name = 'vaderSentiment-swedish',
   #packages = ['vaderSentiment'], # this must be the same as the name above
   packages = find_packages(exclude=['tests*']), # a better way to do it than the line above -- this way no typo/transpo errors
   include_package_data=True,
@@ -23,10 +23,10 @@ setup(
   author = 'C.J. Hutto',
   author_email = 'cjhutto@gatech.edu',
   license = 'MIT License: http://opensource.org/licenses/MIT',
-  url = 'https://github.com/cjhutto/vaderSentiment', # use the URL to the github repo
-  download_url = 'https://github.com/cjhutto/vaderSentiment/archive/master.zip',
+  url = 'https://github.com/AlexGustafsson/vaderSentiment-swedish', # use the URL to the github repo
+  download_url = 'https://github.com/AlexGustafsson/vaderSentiment-swedish/archive/master.zip',
   install_requires = ['requests'],
-  keywords = ['vader', 'sentiment', 'analysis', 'opinion', 'mining', 'nlp', 'text', 'data',
+  keywords = ['vader', 'sentiment', 'analysis', 'swedish', 'opinion', 'mining', 'nlp', 'text', 'data',
               'text analysis', 'opinion analysis', 'sentiment analysis', 'text mining', 'twitter sentiment',
               'opinion mining', 'social media', 'twitter', 'social', 'media'], # arbitrary keywords
   classifiers = ['Development Status :: 4 - Beta', 'Intended Audience :: Science/Research',
