@@ -224,7 +224,7 @@ class SentimentIntensityAnalyzer(object):
         """
         Return a float for sentiment strength based on the input text.
         Positive values are positive valence, negative value are negative
-        valence.
+        valence. Debug information is available with values given to each word.
         """
         # convert emojis to their textual descriptions
         text_no_emoji = ""
@@ -245,6 +245,7 @@ class SentimentIntensityAnalyzer(object):
         sentitext = SentiText(text)
 
         sentiments = []
+        debug = []
         words_and_emoticons = sentitext.words_and_emoticons
         for i, item in enumerate(words_and_emoticons):
             valence = 0
@@ -258,11 +259,11 @@ class SentimentIntensityAnalyzer(object):
                 continue
 
             sentiments = self.sentiment_valence(valence, sentitext, item, i, sentiments)
-
+            debug.append((item, sentiments[-1]))
         sentiments = self._but_check(words_and_emoticons, sentiments)
 
         valence_dict = self.score_valence(sentiments, text)
-
+        valence_dict["debug"] = debug
         return valence_dict
 
     def sentiment_valence(self, valence, sentitext, item, i, sentiments):
